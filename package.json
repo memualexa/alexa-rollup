@@ -1,0 +1,43 @@
+{
+  "name": "alexa-rollup",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "st --no-cache --port 8080 --host 0.0.0.0 --dir public --index index.html",
+    "cp": "rm -rf public/* && cp src/index.html public && cp src/favicon.ico public && cp -R src/img/. public",
+    "css": "postcss -o public/css/app.css src/css/app.css",
+    "dev": "rollup -c --environment BUILD:dev",
+    "prod": "rollup -c --environment BUILD:prod,MINIFY:true",
+    "choindex": "chokidar 'src/index.html' -c 'cp src/index.html public'",
+    "chodev": "chokidar 'src/js/**/*' -c 'npm run dev'",
+    "chocss": "chokidar 'src/css/**/*' -c 'npm run css'",
+    "watch": "npm run cp && npm run dev && npm run css && npm run choindex & npm run chodev & npm run chocss & npm run start",
+    "build": "npm run cp && npm run css && npm run prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memualexa/alexa-rollup.git"
+  },
+  "author": "Alexa Memu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/memualexa/alexa-rollup/issues"
+  },
+  "homepage": "https://github.com/memualexa/alexa-rollup#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.4.3",
+    "chokidar-cli": "^1.2.1",
+    "mapbox-gl": "file:../alexa-mapbox-gl-js",
+    "postcss-cli": "^6.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-inline-svg": "^3.1.1",
+    "rollup": "^1.0.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "st": "^1.2.2"
+  },
+  "dependencies": {}
+}
