@@ -51,13 +51,15 @@ return mapboxgl;
 
 });
 
-console.log('version', version);
+//      
+ console.log('version', version);
 
 mapboxGl.accessToken = 'pk.eyJ1IjoibWVtdWFsZXhhIiwiYSI6ImNqcWM1ZWVhYjFnbDc0MXFnaDZtOHdtMDQifQ.EzgH-TCFq8z7X9CSPQAjHQ';
 
 var map = new mapboxGl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v10', // stylesheet location
+    //style: 'mapbox://styles/memualexa/cjqc648u5fpd32roaeqrzbrda',
     center: [101, 16], // starting position [lng, lat]
     pitch: 45,
     bearing: -7.6, //bearing: -17.6,
@@ -67,7 +69,7 @@ var map = new mapboxGl.Map({
 // Add geolocate control to the map.
 map.addControl(new mapboxGl.GeolocateControl({
   positionOptions: {
-      enableHighAccuracy: true
+    enableHighAccuracy: true
   },
   trackUserLocation: true
 }));
@@ -75,6 +77,12 @@ map.addControl(new mapboxGl.GeolocateControl({
 // The 'building' layer in the mapbox-streets vector source contains building-height
 // data from OpenStreetMap.
 map.on('load', function() {
+  
+  var layerTest = map.getStyle().layers;
+  for (var i = 0; i < layerTest.length; i++) {
+    console.log(layerTest[i].type, layerTest[i].id);
+  }
+  
     // Insert the layer beneath any symbol layer.
     var layers = map.getStyle().layers;
 

@@ -8,7 +8,7 @@ const minified = MINIFY === 'true';
 const prod = BUILD === 'prod';
 
 const config = [{ 
-  input: ['src/js/app.js'],
+  input: ['src/js-flow-remove/app.js'],
   output: {
     name: 'alexa-app',
     dir: 'public/js',

@@ -1,0 +1,12 @@
+[ignore]
+.*/node_modules/.*
+.*/alexa-mapbox-gl-js/.*
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

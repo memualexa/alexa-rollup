@@ -1,4 +1,4 @@
-// @flow
+//      
 
 import { version } from '../../package.json'; console.log('version', version);
 import mapboxgl from 'mapbox-gl';
@@ -70,6 +70,6 @@ map.on('load', function() {
     }, labelLayerId);
 });
 
-function square(xy: number): number {
+function square(xy        )         {
   return xy * xy;
 }
