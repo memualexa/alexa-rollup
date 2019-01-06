@@ -118,6 +118,7 @@ class NullIslandLayer {
     gl.useProgram(this.program);
     // $FlowFixMe
     gl.uniformMatrix4fv(gl.getUniformLocation(this.program, "u_matrix"), false, matrix);
+    console.log(new Date(), matrix);
     gl.drawArrays(gl.POINTS, 0, 1);
   }
 }
